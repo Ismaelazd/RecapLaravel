@@ -42,8 +42,10 @@ Route::get('/deleteRole/{id}', 'RoleController@destroy')->name('deleteRole');
 Route::get('/viewArticle', 'ArticleController@index')->name('Article');
 Route::get('/addArticle', 'ArticleController@create')->name('addArticle');
 Route::post('/storeArticle', 'ArticleController@store')->name('storeArticle');
+Route::get('/editArticle/{id}', 'ArticleController@edit')->name('editArticle');
 Route::post('/updateArticle/{id}', 'ArticleController@update')->name('updateArticle');
 Route::get('/deleteArticle/{id}', 'ArticleController@destroy')->name('deleteArticle');
+Route::get('/showArticle/{id}', 'ArticleController@show')->name('showArticle');
 Route::get('/downloadArticle/{id}', 'ArticleController@download')->name('downloadArticle');
 
 //Mon profil

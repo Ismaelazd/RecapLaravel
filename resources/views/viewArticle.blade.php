@@ -23,18 +23,15 @@
                     <p class="card-text">{{$article->description}}</p>
 
                 </div>
-                <div class="d-flex justify-content-around mb-4">
-                    {{-- <a href="{{route('article',$article->id)}} " class="btn btn-outline-dark">Lire l'article</a>
-                    @if (Auth::check() && Auth::user()->id_role!=2)
-                    @if ($abonnements->where('id_article',$article->id)->where('id_user',Auth::id())->first())
-
-                    <a class="btn btn-success text-white" href="{{route('deleteAbonnement',$article->id)}}"><i
-                            class="fa fa-bell-slash"></i></a>
-                    @else
-                    <a class="btn btn-dark  " href="{{route('saveAbonnement',$article->id)}}"><i
-                            class="fa fa-bell"></i></a>
-                    @endif
-                    @endif --}}
+                <div class="d-flex justify-content-around my-2 ">
+                 
+                    <a class="linkArticles" title="Show" href="{{route('showArticle',$article->id)}}"> <i
+                        class="text-primary fa-2x fa fa-eye"></i></a>
+                    <a class="linkArticles" title="Edit" href="{{route('editArticle',$article->id)}}"> <i
+                        class="text-warning fa-2x fa fa-edit"></i></a>
+                    <a class="linkArticles" title="Delete" href="{{route('deleteArticle',$article->id)}}"> <i
+                        class="text-danger fa-2x fa fa-trash"></i></a>
+                   
                 </div> 
             </div> 
         </div>

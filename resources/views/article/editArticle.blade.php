@@ -4,16 +4,16 @@
         <div class="container">
             <div class="text-center mb-5">
 
-                <h1 class="  p-3 mt-3 ">Modifier l'article </h1>
+                <h1 class="  p-3 mt-3 ">Modifier l'article : {{$article->name}} </h1>
                 <hr class="bg-dark">
             </div>
             <form action="{{route('updateArticle',$article->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group text-darka ">
-                    <label class="h3" for="titre ">Titre :</label>
-                    <input value="@if($errors->first('titre'))@else{{old('titre')}}@endif"
-                    type="text" name="titre" class="form-control @error('titre') is-invalid @enderror" id="titre" >
-                    @error('titre')
+                    <label class="h3" for="name ">Nom :</label>
+                    <input value="@if($errors->first('name'))@else{{old('name')}}@endif"
+                    type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" >
+                    @error('name')
                         <div  class="alert alert-danger">{{  $message  }}</div>
                     @enderror
                 </div>
@@ -36,7 +36,7 @@
                
                 <div class="text-center">
 
-                    <button type="submit" class="btn btn-outline-light">Submit</button>
+                    <button type="submit" class="btn btn-outline-dark">Submit</button>
                 </div>
 
             </form>

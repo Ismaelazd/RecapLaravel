@@ -68,9 +68,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        return view('article.showArticle');
+        $article = Article::find($id);
+        return view('article.showArticle',compact('article'));
     }
 
     /**
@@ -100,8 +101,7 @@ class ArticleController extends Controller
             $article->img=$image;
         }
         $article->name=$request->input('name');
-        $article->prix=$request->input('prix');        
-        $article->user_id=Auth::id();
+        $article->description=$request->input('description');        
 
         $article->save();
         return redirect()->route('Article');
