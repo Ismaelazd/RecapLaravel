@@ -11,7 +11,7 @@
                 @csrf
                 <div class="form-group text-darka ">
                     <label class="h3" for="name ">Nom :</label>
-                    <input value="@if($errors->first('name'))@else{{old('name')}}@endif"
+                    <input value="{{$article->name}}"
                     type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" >
                     @error('name')
                         <div  class="alert alert-danger">{{  $message  }}</div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group text-darka">
                     <label class="h3"  for="description">Description :</label>
-                    <input value="@if($errors->first('description'))@else{{old('description')}}@endif"
+                    <input value="{{$article->description}}"
                     type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="description" >
                     @error('description')
                         <div  class="alert alert-danger">{{  $message  }}</div>
