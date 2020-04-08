@@ -1,0 +1,100 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+@import 'font-awesome/css/font-awesome.css';
+@import 'ionicons/css/ionicons.css';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+.uicard {
+	position: relative;
+	background-color: #2b303b;
+	width: 300px;
+	height: 450px;
+	margin: 0 auto;
+	margin-top: 40px;
+	border-radius: 5px;
+	box-shadow: 3px 2px 15px 0px #212129;
+}
+.fon img{
+	position: relative;
+	border-radius: 5px 5px 0 0;
+	position: relative;
+	margin:0 auto;
+	width: 300px;
+	height: 200px;
+
+}
+.user img {
+	position: relative;
+	margin:0 auto;
+	width: 90px;
+	height: 90px;
+	border-radius: 90px;
+	border: 2px solid #fff;
+	bottom: 50px;
+	overflow: visible;
+	z-index: 5;
+}
+.user p {
+	font-size: 1.3em;
+	color: #fff;
+	margin-top: -20px;
+}
+.socialinfo {
+
+	cursor: pointer;
+    display:flex;
+    justify-content:center;
+    margin-top: 20px;
+}
+.socialtext1 {
+	
+	color: #fff;
+	flex: 2;
+	border-right: 1px solid #fff;
+	
+	transition: 400ms;
+}
+.socialtext1:hover {
+	color: #7a87ff;
+	transition: 400ms;
+}
+
+.socialtext2 {
+  text-align:center;
+	position: relative;
+	color: #fff;
+    flex: 2;
+	border-right: 1px solid #fff;
+	
+	display: inline-block;
+	transition: 400ms;
+}
+
+.socialtext2:hover {
+	color: #7a87ff;
+	transition: 400ms;
+}
+
+.socialtext3 {
+	position: relative;
+	color: #fff;
+	float: right;
+  
+  flex: 2;
+	display: inline-block;
+	transition: 400ms;
+}
+.socialtext3:hover {
+	color: #7a87ff;
+	transition: 400ms;
+}
+
+.pokeball{
+    height: 2em;
+}
