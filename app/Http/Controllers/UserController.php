@@ -30,7 +30,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $roles = Role::all();
-        return view('myProfil',compact('user','roles'));
+        return view('MyProfil',compact('user','roles'));
     }
 
     /**

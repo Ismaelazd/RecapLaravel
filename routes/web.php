@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'WelcomController@index')->name('Welcome');
+Route::get('/', 'WelcomeController@index')->name('Welcome');
 
 Auth::routes();
 
