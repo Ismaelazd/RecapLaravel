@@ -24,7 +24,8 @@
         </div>
         <div class="socialinfo ">
             <div class="socialtext1 d-flex flex-column justify-content-start align-items-center text-center">
-                <p class="m-0">{{$user->email}}</p>
+                <p>Email :</p>
+                <p class="m-0 px-3">{{$user->email}}</p>
                 
             </div>
 

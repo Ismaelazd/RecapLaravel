@@ -40,7 +40,7 @@ class ArticleTableSeeder extends Seeder
             
             'name' => 'Trunks',
             'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsum voluptas inventore, earum, fuga eos iure, nostrum eum expedita reiciendis nesciunt nemo dolore vero doloribus. Consequuntur corporis dolor inventore eveniet!',
-            'img' => 'trunks.jpg',
+            'img' => 'trunks2.jpg',
             'user_id' => 1
             
         ]);
