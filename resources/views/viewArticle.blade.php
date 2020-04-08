@@ -8,7 +8,8 @@
 <div class="container my-5">
     <div class="text-center mb-5 mx-5 px-5">
 
-        <h1 class="text-dark  p-3 mt-3 ">Nos Articles </h1>
+        <h1 class="text-dark  p-3 mt-3 ">Nos Articles <span class="mx-3 "><a href="{{route('addArticle')}}" title="Add article"><i
+            class=" text-secondary ion ion-android-add-circle "></i></a></span> </h1>
         <hr class="bg-dark">
     </div>
 

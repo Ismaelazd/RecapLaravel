@@ -29,7 +29,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('article.addArticle');
     }
 
     /**
@@ -40,7 +40,26 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+            'img'=>'required|image',
+           
+        ]);
+
+   
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
+        $article = new Article();
+        $article->name =  $request->input('name');
+        $article->description =  $request->input('description');
+        $article->img =  $newName;
+        $article->user_id = Auth::id();
+        $article->save();
+
+        return redirect()->route('Article');
+
+
     }
 
     /**
@@ -51,7 +70,7 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        return view('article.showArticle');
     }
 
     /**
@@ -60,9 +79,10 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        //
+        $article = Article::find($id);
+        return view('article.editArticle',compact('article'));
     }
 
     /**
@@ -93,8 +113,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        Storage::disk('public')->delete($article->img);
+        $article->delete();
+        return redirect()->route('Article');
     }
 }

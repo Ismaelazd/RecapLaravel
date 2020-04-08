@@ -19,7 +19,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('viewUser',compact('roles'));
+        return view('viewRole',compact('roles'));
     }
 
     /**

@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/theme.css">
-@extends('layouts/app')
+@extends('layout/master')
+@include('components/nav')
 
 @section('content')
 
