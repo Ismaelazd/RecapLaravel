@@ -8,10 +8,10 @@
         @if (Auth::check())
             
         <li class="nav-item active">
-          <a class="nav-link" href="{{route('User')}}">Users </a>
+          <a class="nav-link" href="{{route('user.index')}}">Users </a>
         </li>
         <li class="nav-item active  ">
-          <a class="nav-link" href="{{route('Article')}}">Articles</a>
+          <a class="nav-link" href="{{route('article.index')}}">Articles</a>
         </li>
         
         @endif

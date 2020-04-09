@@ -7,7 +7,7 @@
                 <h1 class="  p-3 mt-3 ">Ajouter un article </h1>
                 <hr class="bg-dark">
             </div>
-            <form action="{{route('storeArticle')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('article.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group text-darka ">
                     <label class="h3" for="titre ">Nom :</label>

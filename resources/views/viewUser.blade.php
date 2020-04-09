@@ -39,23 +39,24 @@
                             <small>{{$user->email}}</small>
 
                         </h2>
-                        <div class="icon-block">
+                        <div class="icon-block d-flex justify-content-center">
 
-                            <a href="{{route('editUser',$user->id)}}"><i
+                            <a href="{{route('user.edit',$user)}}"><i
                                     class="fa fa-pencil"></i></a>
                             @if ($user->id != 1)
 
-                            <a href="{{route('deleteUser',$user->id)}}"> <i class="fa fa-trash"></i></a>
+                            <form action="{{route('user.destroy',$user)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                            <a href=""> <i class="fa fa-trash"></i></a>
+                        </form>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
             @endforeach
-
 
         </div>
     </div>

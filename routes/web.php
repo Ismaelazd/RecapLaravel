@@ -20,37 +20,50 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// USER
+// // USER
 
-Route::get('/viewUser', 'UserController@index')->name('User');
-Route::get('/addUser', 'UserController@create')->name('addUser');
-Route::post('/storeUser', 'UserController@store')->name('storeUser');
-Route::get('/editUser/{id}', 'UserController@edit')->name('editUser');
-Route::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
-Route::get('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
+// Route::get('/viewUser', 'UserController@index')->name('User');
+// Route::get('/addUser', 'UserController@create')->name('addUser');
+// Route::post('/storeUser', 'UserController@store')->name('storeUser');
+// Route::get('/editUser/{id}', 'UserController@edit')->name('editUser');
+// Route::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
+// Route::get('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
 
 
-// ROLE
+// // ROLE
 
-Route::get('/viewRole', 'RoleController@index')->name('Role');
-Route::get('/addRole', 'RoleController@create')->name('addRole');
-Route::post('/storeRole', 'RoleController@store')->name('storeRole');
-Route::post('/updateRole/{id}', 'RoleController@update')->name('updateRole');
-Route::get('/deleteRole/{id}', 'RoleController@destroy')->name('deleteRole');
+// Route::get('/viewRole', 'RoleController@index')->name('Role');
+// Route::get('/addRole', 'RoleController@create')->name('addRole');
+// Route::post('/storeRole', 'RoleController@store')->name('storeRole');
+// Route::post('/updateRole/{id}', 'RoleController@update')->name('updateRole');
+// Route::get('/deleteRole/{id}', 'RoleController@destroy')->name('deleteRole');
 
-// ARTICLE
+// // ARTICLE
 
-Route::get('/viewArticle', 'ArticleController@index')->name('Article');
-Route::get('/addArticle', 'ArticleController@create')->name('addArticle');
-Route::post('/storeArticle', 'ArticleController@store')->name('storeArticle');
-Route::get('/editArticle/{id}', 'ArticleController@edit')->name('editArticle');
-Route::post('/updateArticle/{id}', 'ArticleController@update')->name('updateArticle');
-Route::get('/deleteArticle/{id}', 'ArticleController@destroy')->name('deleteArticle');
-Route::get('/showArticle/{id}', 'ArticleController@show')->name('showArticle');
-Route::get('/downloadArticle/{id}', 'ArticleController@download')->name('downloadArticle');
+// Route::get('/viewArticle', 'ArticleController@index')->name('Article');
+// Route::get('/addArticle', 'ArticleController@create')->name('addArticle');
+// Route::post('/storeArticle', 'ArticleController@store')->name('storeArticle');
+// Route::get('/editArticle/{id}', 'ArticleController@edit')->name('editArticle');
+// Route::post('/updateArticle/{id}', 'ArticleController@update')->name('updateArticle');
+// Route::get('/deleteArticle/{id}', 'ArticleController@destroy')->name('deleteArticle');
+// Route::get('/showArticle/{id}', 'ArticleController@show')->name('showArticle');
+// Route::get('/downloadArticle/{id}', 'ArticleController@download')->name('downloadArticle');
 
-//Mon profil
+// //Mon profil
 
-Route::get('/monProfil', 'UserController@create')->name('MyProfil');
-Route::get('/editMyProfil/{id}', 'MyProfilController@edit')->name('editMyProfil');
-Route::post('/updateMyProfil/{id}', 'MyProfilController@update')->name('updateMyProfil');
+// Route::get('/monProfil', 'UserController@create')->name('MyProfil');
+// Route::get('/editMyProfil/{id}', 'MyProfilController@edit')->name('editMyProfil');
+// Route::post('/updateMyProfil/{id}', 'MyProfilController@update')->name('updateMyProfil');
+
+
+// Ressource USER
+
+Route::resource('user','UserController');
+
+// Ressource MYPROFIL
+
+Route::resource('MyProfil','MyProfilController');
+
+// Ressource MYPROFIL
+
+Route::resource('article','ArticleController');

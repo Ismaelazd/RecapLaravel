@@ -7,8 +7,9 @@
         <h1 class="  p-3 mt-3 ">Modifier l'article : {{$user->name}} </h1>
         <hr class="bg-dark">
     </div>
-    <form action="{{route('updateMyProfil',$user->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('MyProfil.update',$user)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT');
         <div class="form-group text-darka ">
             <label class="h3" for="name ">Nom :</label>
             <input value="{{$user->name}}" type="text" name="name"

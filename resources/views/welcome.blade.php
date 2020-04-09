@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{route('MyProfil')}}">Mon Profil</a>
-                    <a href={{route('Article')}}>Articles</a>
-                    <a href={{route('User')}}>Users</a>
+                    <a href="{{route('MyProfil.index')}}">Mon Profil</a>
+                    <a href={{route('article.index')}}>Articles</a>
+                    <a href={{route('user.index')}}>Users</a>
                     
                 </div>
             </div>

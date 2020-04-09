@@ -39,11 +39,15 @@
         </div>
         <div class="icon-block mt-2">
 
-            <a href="{{route('editMyProfil',$user->id)}}"><i
+            <a href="{{route('MyProfil.edit',$user->id)}}"><i
                     class="fa fa-pencil"></i></a>
             @if ($user->id != 1)
 
-            <a href="{{route('deleteMyProfil',$user->id)}}"> <i class="fa fa-trash"></i></a>
+            <form action="{{route('MyProfil.destroy',$user->id)}}" method="post">
+                @csrf
+                @method('DELETE')
+            <a href=""> <i class="fa fa-trash"></i></a>
+            </form>
             @endif
         </div>
 

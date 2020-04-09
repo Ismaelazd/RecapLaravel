@@ -7,8 +7,9 @@
         <h1 class="  p-3 mt-3 ">Modifier l'article : {{$user->name}} </h1>
         <hr class="bg-dark">
     </div>
-    <form action="{{route('updateUser',$user->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('user.update',$user)}}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <div class="form-group text-darka ">
             <label class="h3" for="name ">Nom :</label>
             <input value="{{$user->name}}" type="text" name="name"
@@ -19,8 +20,8 @@
         </div>
         <div class="form-group text-darka ">
             <label class="h3" for="email">Email :</label> <br>
-            <input value="@if($errors->first('email'))@else{{old('email')}}@endif" type="email" name="email"
-                class=" @error('email') is-invalid @enderror" id="email">
+            <input value="{{$user->email}}" type="email" name="email"
+                class="form-control @error('email') is-invalid @enderror" id="email">
             @error('email')
             <div class="alert alert-danger">{{  $message  }}</div>
             @enderror

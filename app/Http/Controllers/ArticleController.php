@@ -57,7 +57,7 @@ class ArticleController extends Controller
         $article->user_id = Auth::id();
         $article->save();
 
-        return redirect()->route('Article');
+        return redirect()->route('article.index');
 
 
     }
@@ -68,9 +68,9 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
+    
         return view('article.showArticle',compact('article'));
     }
 
@@ -80,9 +80,9 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::find($id);
+        
         return view('article.editArticle',compact('article'));
     }
 
@@ -93,8 +93,8 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id){
-        $article = Article::find($id);
+    public function update(Request $request, Article $article){
+        
         if ($request->hasFile('img')) {
             Storage::disk('public')->delete($article->img);
             $image=Storage::disk('public')->put('', $request->img);
@@ -104,7 +104,7 @@ class ArticleController extends Controller
         $article->description=$request->input('description');        
 
         $article->save();
-        return redirect()->route('Article');
+        return redirect()->route('article.index');
     }
 
     /**
@@ -113,11 +113,11 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        $article = Article::find($id);
+        
         Storage::disk('public')->delete($article->img);
         $article->delete();
-        return redirect()->route('Article');
+        return redirect()->route('article.index');
     }
 }

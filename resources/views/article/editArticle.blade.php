@@ -7,8 +7,9 @@
                 <h1 class="  p-3 mt-3 ">Modifier l'article : {{$article->name}} </h1>
                 <hr class="bg-dark">
             </div>
-            <form action="{{route('updateArticle',$article->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('article.update',$article)}}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="form-group text-darka ">
                     <label class="h3" for="name ">Nom :</label>
                     <input value="{{$article->name}}"
@@ -18,8 +19,8 @@
                     @enderror
                 </div>
                 <div class="form-group text-darka ">
-                    <label class="h3" for="img">Image :</label> <br>
-                    <input value="@if($errors->first('img'))@else{{old('img')}}@endif"
+                    <label class="h3  " for="img">Image :</label> <br>
+                    <input class="form-control" value="@if($errors->first('img'))@else{{old('img')}}@endif"
                     type="file" name="img" class=" @error('img') is-invalid @enderror" id="img" >
                     @error('img')
                         <div  class="alert alert-danger">{{  $message  }}</div>

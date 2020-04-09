@@ -28,9 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $user = Auth::user();
-        $roles = Role::all();
-        return view('MyProfil',compact('user','roles'));
+       //
     }
 
     /**
@@ -50,7 +48,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
@@ -61,10 +59,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
         $roles = Role::all();
-        $user = User::find($id);
+     
         return view('user.editUser',compact('user','roles'));
     }
 
@@ -75,7 +73,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name'=> 'required',
@@ -83,7 +81,7 @@ class UserController extends Controller
             'role_id'=>'required',
         ]);
         
-        $user = User::find($id);
+      
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->role_id = $request->input('role_id');
@@ -98,9 +96,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        $user = User::find($id);
         $user->delete();
         return redirect()->route('User');
     }

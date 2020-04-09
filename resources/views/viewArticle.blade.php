@@ -8,7 +8,7 @@
 <div class="container my-5">
     <div class="text-center mb-5 mx-5 px-5">
 
-        <h1 class="text-dark  p-3 mt-3 ">Nos Articles <span class="mx-3 "><a href="{{route('addArticle')}}" title="Add article"><i
+        <h1 class="text-dark  p-3 mt-3 ">Nos Articles <span class="mx-3 "><a href="{{route('article.create')}}" title="Add article"><i
             class=" text-secondary ion ion-android-add-circle "></i></a></span> </h1>
         <hr class="bg-dark">
     </div>
@@ -25,12 +25,17 @@
                 </div>
                 <div class="d-flex justify-content-around my-2 ">
                  
-                    <a class="linkArticles" title="Show" href="{{route('showArticle',$article->id)}}"> <i
+                    <a class="linkArticles" title="Show" href="{{route('article.show',$article)}}"> <i
                         class="text-primary fa-2x fa fa-eye"></i></a>
-                    <a class="linkArticles" title="Edit" href="{{route('editArticle',$article->id)}}"> <i
+                    <a class="linkArticles" title="Edit" href="{{route('article.edit',$article)}}"> <i
                         class="text-warning fa-2x fa fa-edit"></i></a>
-                    <a class="linkArticles" title="Delete" href="{{route('deleteArticle',$article->id)}}"> <i
+                        <form action="{{route('article.destroy',$article)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                    <a class="linkArticles" title="Delete" href=""> <i
                         class="text-danger fa-2x fa fa-trash"></i></a>
+
+                    </form>
                    
                 </div> 
             </div> 

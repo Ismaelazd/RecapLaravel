@@ -18,7 +18,9 @@ class MyProfilController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $roles = Role::all();
+        return view('MyProfil',compact('user','roles'));
     }
 
     /**
@@ -59,7 +61,7 @@ class MyProfilController extends Controller
      * @param  \App\MyProfil  $myProfil
      * @return \Illuminate\Http\Response
      */
-    public function edit(MyProfil $myProfil)
+    public function edit(User $user)
     {
         $roles = Role::all();
         $user = Auth::user();
@@ -73,21 +75,21 @@ class MyProfilController extends Controller
      * @param  \App\MyProfil  $myProfil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name'=> 'required',
             'email'=>'required',
             'password'=>'required',
         ]);
-        
         $user = Auth::user();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = $request->input('password');
+       
         
         $user->save();
-        return redirect()->route('MyProfil');
+        return redirect()->route('MyProfil.index');
     }
 
     /**

@@ -24,11 +24,15 @@
                 </div>
                 <div class="d-flex justify-content-around my-2 ">
                  
-                    <a class="linkArticles" title="Edit" href="{{route('editArticle',$article->id)}}"> <i
+                    <a class="linkArticles" title="Edit" href="{{route('article.edit',$article)}}"> <i
                         class="text-warning fa-2x fa fa-edit"></i></a>
-                    <a class="linkArticles" title="Delete" href="{{route('deleteArticle',$article->id)}}"> <i
+                        <form action="{{route('article.destroy',$article)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                    <a class="linkArticles" title="Delete" href=""> <i
                         class="text-danger fa-2x fa fa-trash"></i></a>
-                   
+
+                    </form>
                 </div> 
             </div> 
         </div>

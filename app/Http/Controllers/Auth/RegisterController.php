@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Mail\RegisterMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role_id' => ['required', 'integer'],
+            
         ]);
     }
 
@@ -65,11 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+
+        if (count(User::all())==0){
+            $role = 1;
+        }else{
+            $role = 3;
+        }
+        Mail::to($data['email'])->send(new RegisterMail($data['name'],$data['email'],$data['password']));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'role_id' => 3
+            'role_id' => $role
         ]);
     }
 }
