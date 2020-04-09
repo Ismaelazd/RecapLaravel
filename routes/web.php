@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/viewUser', 'UserController@index')->name('User');
 Route::get('/addUser', 'UserController@create')->name('addUser');
 Route::post('/storeUser', 'UserController@store')->name('storeUser');
+Route::get('/editUser/{id}', 'UserController@edit')->name('editUser');
 Route::post('/updateUser/{id}', 'UserController@update')->name('updateUser');
 Route::get('/deleteUser/{id}', 'UserController@destroy')->name('deleteUser');
 
@@ -51,3 +52,5 @@ Route::get('/downloadArticle/{id}', 'ArticleController@download')->name('downloa
 //Mon profil
 
 Route::get('/monProfil', 'UserController@create')->name('MyProfil');
+Route::get('/editMyProfil/{id}', 'MyProfilController@edit')->name('editMyProfil');
+Route::post('/updateMyProfil/{id}', 'MyProfilController@update')->name('updateMyProfil');

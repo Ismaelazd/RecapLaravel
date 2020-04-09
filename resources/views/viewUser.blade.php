@@ -41,12 +41,12 @@
                         </h2>
                         <div class="icon-block">
 
-                            {{-- <a href="#" data-toggle="modal" data-target="#modalUser{{$user->id}}"><i
+                            <a href="{{route('editUser',$user->id)}}"><i
                                     class="fa fa-pencil"></i></a>
                             @if ($user->id != 1)
 
                             <a href="{{route('deleteUser',$user->id)}}"> <i class="fa fa-trash"></i></a>
-                            @endif --}}
+                            @endif
                         </div>
                     </div>
                 </div>
